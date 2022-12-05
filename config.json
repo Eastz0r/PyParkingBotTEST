@@ -1,0 +1,20 @@
+{
+    "data_file": "data.pickle",
+    "logging": {
+        "log_file": "log.txt",
+        "log_length": "20"
+    },
+    "owner_id": 410627758,
+    "places": [
+        "39",
+        "50",
+        "2",
+        "3",
+        "4",
+        "5",
+        "6"
+    ],
+    "token": "5587141390:AAE3OzQ8tYzExgo9VzsRg3r8JeH3mHA8JmI",
+    "users_file": "users.json",
+    "whitelist": false
+}
