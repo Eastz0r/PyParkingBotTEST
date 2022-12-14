@@ -56,11 +56,11 @@ def parking_handler(update: Update, context: CallbackContext) -> None:
                     place.toggle_state(str(update.effective_user.id))
                     state = place.state
             if state == 'reserved':
-                action_text = 'зарезервировал'
-            elif state == 'occupied':
-                action_text = 'занял'
+                action_text = 'зарезервировал(а)'
+            """elif state == 'occupied':
+                action_text = 'занял(а)'"""
             elif state == 'free':
-                action_text = 'освободил'
+                action_text = 'освободил(а)'
             update.callback_query.answer(f'Вы {action_text}и место {number}')
             action = (f'*{users[str(update.effective_user.id)]}* ' +
                       f'{action_text} место *{number}*')
@@ -107,7 +107,7 @@ def clear_handler(update: Update, context: CallbackContext) -> None:
                     stats.count(place)
             update.callback_query.answer('Вы выбрали очистку парковки')
             action = (f'*{users[str(update.effective_user.id)]}* ' +
-                      'очистил парковочное пространство')
+                      'очистил(а) парковочное пространство')
             update_state(update, context, action)
             log_event(update, action)
         except ValueError:
@@ -173,9 +173,9 @@ def make_keyboard(context: CallbackContext,
         clear_button = InlineKeyboardButton(' '.join(
             [emojize(':FREE_button:'), 'Очистить парковку']),
             callback_data='clear')
-        statistics_button = InlineKeyboardButton(' '.join(
+        """statistics_button = InlineKeyboardButton(' '.join(
             [emojize(':bar_chart:'), 'Статистика']),
-            callback_data='statistics')
+            callback_data='statistics')"""
         if state == 'reserved' and occupant == user_id:
             keyrow = []
             keyrow.append(place_button)
@@ -186,10 +186,10 @@ def make_keyboard(context: CallbackContext,
     if not parking.is_free:
         keyrow = []
         keyrow.append(clear_button)
-        keyrow.append(statistics_button)
+        """keyrow.append(statistics_button)"""
         keyboard.append(keyrow)
     else:
-        keyboard.append([statistics_button])
+        """keyboard.append([statistics_button])"""
     return InlineKeyboardMarkup(keyboard)
 
 
