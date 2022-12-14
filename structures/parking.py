@@ -175,7 +175,7 @@ class Parking():
         if place.state == 'free':
             place_sign = emojize(':green_square:')
         elif place.state == 'reserved':
-            place_sign = emojize(':yellow_square:')
+            place_sign = emojize(':red_square:')
         elif place.state == 'occupied':
             place_sign = emojize(':red_square:')
         return place_sign
